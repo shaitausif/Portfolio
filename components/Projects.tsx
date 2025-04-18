@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import * as motion from "motion/react-client";
-import Image from "next/image";
 
 const Projects = ({}) => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -24,7 +23,7 @@ const Projects = ({}) => {
         { id: 5, name: "Zod", image: "/icons/zod.png" },
         { id: 6, name: "OpenAI API", image: "/icons/openai.ico" },
       ],
-      url: "https://true-feedback-eight-woad.vercel.app/",
+      url: "https://truefeedback.vercel.app",
     },
     {
       title: "Full-Stack Blog App",
@@ -32,13 +31,13 @@ const Projects = ({}) => {
         "The Full-Stack Blog App allows users to create an account, log in securely via NextAuth, and engage with blog posts. Authenticated users can create, edit, or delete their own posts, while unauthenticated users can only view published content. The app uses React Hook Form for managing form data and Redux Toolkit for centralized state management. With a focus on clean UI design and smooth user experience, this app showcases full-stack development with features such as authentication, CRUD operations, and state management.",
       image: "./Project2.png",
       techStack: [
-        { id: 1, name: "Next.js", image: "/icons/react.svg" },
+        { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
         { id: 2, name: "NextAuth", image: "/icons/nextauth.png" },
         { id: 3, name: "React Hook Form", image: "/icons/reacthookform.png" },
         { id: 4, name: "Redux Toolkit", image: "/icons/redux.svg" },
-        { id: 5, name: "MongoDB", image: "/icons/appwrite.svg" },
+        { id: 5, name: "MongoDB", image: "/icons/mongodb.svg" },
       ],
-      url: "https://blog-app-liard-six.vercel.app/",
+      url: "https://blogifyapp.vercel.app",
     },
     {
       title: "GetMeChai - Patreon Clone",
@@ -52,7 +51,7 @@ const Projects = ({}) => {
         { id: 4, name: "GitHub OAuth", image: "/icons/github.svg" },
         { id: 5, name: "MongoDB", image: "/icons/mongodb.svg" },
       ],
-      url: "https://get-me-a-chai-khaki.vercel.app/",
+      url: "https://getmechai.vercel.app",
     },
     {
       title: "Netflix UI Clone",
@@ -63,7 +62,7 @@ const Projects = ({}) => {
         { id: 1, name: "HTML", image: "/icons/html.svg" },
         { id: 2, name: "CSS", image: "/icons/css.svg" },
       ],
-      url: "https://shaitausif.github.io/Netflix-Clone/",
+      url: "https://netflixclonehtmlcss.netlify.app",
     },
   ];
 
@@ -130,28 +129,22 @@ const Projects = ({}) => {
             className="w-full flex-shrink-0 snap-center flex flex-col space-y-4 items-center justify-center p-3 md:p-12 min-h-screen"
           >
             <div className="relative group w-fit h-auto">
-              <motion.div 
-              initial={{ y: -200, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.2 }}
-              viewport={{ once: true }}
-              
-              >
-              <Image
-                
+              <motion.img
+                initial={{ y: -200, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.2 }}
+                viewport={{ once: true }}
                 className="w-fit h-30 md:h-50 object-contain rounded-lg"
                 src={project.image}
                 alt=""
               />
-
-            </motion.div>
               <a
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg"
               >
-                <span className="text-white hover:text-blue-400  text-md md:text-lg font-light underline">
+                <span className="text-white hover:text-blue-400  text-md md:text-lg font-medium underline">
                   Visit Project
                 </span>
               </a>
@@ -164,8 +157,7 @@ const Projects = ({}) => {
               </h4>
               <div className="flex items-center space-x-3 justify-center">
                 {project.techStack.map((tech) => (
-                  <Image
-                    alt="Image of tech"
+                  <img
                     key={tech.id}
                     className="md:h-10 md:w-10 h-8 w-8"
                     src={tech.image}

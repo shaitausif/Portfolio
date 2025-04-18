@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Header from "../../components/Header";
 import Hero from "../../components/Hero";
 import About from "../../components/About";
@@ -52,7 +51,7 @@ export default function Home() {
     <Link href={'#hero'}>
     <footer className="sticky bottom-3 md:bottom-2  w-full cursor-pointer">
       <div className="flex items-center justify-center">
-        <Image
+        <img
         className="h-8 w-8  rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
         src="./javascript.png" alt="" />
       </div>
