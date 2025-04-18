@@ -23,7 +23,7 @@ const Projects = ({}) => {
         { id: 5, name: "Zod", image: "/icons/zod.png" },
         { id: 6, name: "OpenAI API", image: "/icons/openai.ico" },
       ],
-      url: "https://truefeedback.vercel.app",
+      url: "https://true-feedback-eight-woad.vercel.app/",
     },
     {
       title: "Full-Stack Blog App",
@@ -37,7 +37,7 @@ const Projects = ({}) => {
         { id: 4, name: "Redux Toolkit", image: "/icons/redux.svg" },
         { id: 5, name: "MongoDB", image: "/icons/mongodb.svg" },
       ],
-      url: "https://blogifyapp.vercel.app",
+      url: "https://blog-app-liard-six.vercel.app/",
     },
     {
       title: "GetMeChai - Patreon Clone",
@@ -51,7 +51,7 @@ const Projects = ({}) => {
         { id: 4, name: "GitHub OAuth", image: "/icons/github.svg" },
         { id: 5, name: "MongoDB", image: "/icons/mongodb.svg" },
       ],
-      url: "https://getmechai.vercel.app",
+      url: "https://get-me-a-chai-khaki.vercel.app/",
     },
     {
       title: "Netflix UI Clone",
@@ -62,7 +62,7 @@ const Projects = ({}) => {
         { id: 1, name: "HTML", image: "/icons/html.svg" },
         { id: 2, name: "CSS", image: "/icons/css.svg" },
       ],
-      url: "https://netflixclonehtmlcss.netlify.app",
+      url: "https://shaitausif.github.io/Netflix-Clone/",
     },
   ];
 
