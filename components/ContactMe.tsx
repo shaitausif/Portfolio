@@ -13,7 +13,7 @@ type Inputs = {
 
 const ContactMe = () => {
 
-  const {register, handleSubmit, formState: {errors} } = useForm<Inputs>()
+  const {register, handleSubmit } = useForm<Inputs>()
 
   const submit: SubmitHandler<Inputs> = (data) => {
     const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=toseaf.s@somaiya.edu&su=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(
@@ -31,7 +31,7 @@ const ContactMe = () => {
       <div className='flex flex-col space-y-6 pt-24 w-full'>
         <h4 className='text-lg md:text-2xl font-semibold text-center'>
           I have just got what you need.{' '}
-          <span className='decoration-[#F7AB0A]/50 underline'>let's talk</span>
+          <span className='decoration-[#F7AB0A]/50 underline'>let&apos;s talk</span>
         </h4>
 
         <div className='space-y-5 text-center'>

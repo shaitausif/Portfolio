@@ -8,7 +8,7 @@ import { easeIn } from 'framer-motion'
 // The TypeWriter effect:  https://www.npmjs.com/package/react-simple-typewriter
 
 const Hero = () => {
-    const [text , count]  = useTypewriter({
+    const [text ]  = useTypewriter({
         words : ["Hi, The Name's Tausif Shaikh","Guy-who-loves-Coffee.tsx","<ButLovesToCodeMore />"],
         loop : true,
         delaySpeed : 2000,

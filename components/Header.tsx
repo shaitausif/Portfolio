@@ -1,7 +1,7 @@
 import React from 'react'
 import { SocialIcon } from 'react-social-icons'
 import * as motion from "motion/react-client"
-import { easeIn, easeInOut, easeOut } from 'framer-motion'
+import { easeInOut } from 'framer-motion'
 import Link from 'next/link'
 import { Mail } from 'lucide-react'
 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import * as motion from "motion/react-client";
 import ExperienceCard from "./ExperienceCard";
 

@@ -2,9 +2,16 @@ import React from 'react'
 import * as motion from 'motion/react-client'
 
 
+type skillType = {
+  id : number,
+  image : string,
+  progress : string,
+  name : string
+}
+
 
 type Props = {
-    skill : any
+    skill : skillType
     directionLeft? : boolean
 }
 

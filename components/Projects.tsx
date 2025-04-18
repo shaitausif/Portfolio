@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import * as motion from "motion/react-client";
+import Image from "next/image";
 
 const Projects = ({}) => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -129,15 +130,21 @@ const Projects = ({}) => {
             className="w-full flex-shrink-0 snap-center flex flex-col space-y-4 items-center justify-center p-3 md:p-12 min-h-screen"
           >
             <div className="relative group w-fit h-auto">
-              <motion.img
-                initial={{ y: -200, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1.2 }}
-                viewport={{ once: true }}
+              <motion.div 
+              initial={{ y: -200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1.2 }}
+              viewport={{ once: true }}
+              
+              >
+              <Image
+                
                 className="w-fit h-30 md:h-50 object-contain rounded-lg"
                 src={project.image}
                 alt=""
               />
+
+            </motion.div>
               <a
                 href={project.url}
                 target="_blank"
@@ -157,7 +164,8 @@ const Projects = ({}) => {
               </h4>
               <div className="flex items-center space-x-3 justify-center">
                 {project.techStack.map((tech) => (
-                  <img
+                  <Image
+                    alt="Image of tech"
                     key={tech.id}
                     className="md:h-10 md:w-10 h-8 w-8"
                     src={tech.image}
