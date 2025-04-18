@@ -1,28 +1,42 @@
 'use client'
 import React from 'react'
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from '@heroicons/react/24/solid'
-import {useForm, SubmitHandler } from 'react-hook-form'
-
+import { useForm, SubmitHandler } from 'react-hook-form'
 
 type Inputs = {
-  name : string,
-  email : string,
-  subject : string,
-  message : string
+  name: string
+  email: string
+  subject: string
+  message: string
 }
 
 const ContactMe = () => {
-
-  const {register, handleSubmit } = useForm<Inputs>()
+  const { register, handleSubmit } = useForm<Inputs>()
 
   const submit: SubmitHandler<Inputs> = (data) => {
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=toseaf.s@somaiya.edu&su=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:toseaf.s@somaiya.edu?subject=${encodeURIComponent(
+      data.subject
+    )}&body=${encodeURIComponent(
       `Hi, my name is ${data.name},\n\n${data.message}\n\n(${data.email})`
     )}`
-    window.open(gmailLink, '_blank')
-  }
-  
 
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=toseaf.s@somaiya.edu&su=${encodeURIComponent(
+      data.subject
+    )}&body=${encodeURIComponent(
+      `Hi, my name is ${data.name},\n\n${data.message}\n\n(${data.email})`
+    )}`
+
+    // Try opening mailto link first
+    window.location.href = mailtoLink
+
+    // Optional: set a timeout for fallback Gmail link (in case mailto doesn't open anything)
+    setTimeout(() => {
+      const isDesktop = window.innerWidth > 768
+      if (isDesktop) {
+        window.open(gmailLink, '_blank')
+      }
+    }, 500)
+  }
 
   return (
     <div className='h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-6xl justify-evenly items-center mx-auto px-4'>
@@ -49,27 +63,48 @@ const ContactMe = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit(submit)} className='flex flex-col space-y-2 w-full max-w-2xl mx-auto px-4'>
-          {/* Name + Email in one row always */}
+        <form
+          onSubmit={handleSubmit(submit)}
+          className='flex flex-col space-y-2 w-full max-w-2xl mx-auto px-4'
+        >
           <div className='flex flex-row gap-2 w-full'>
-            <input {...register('name',{
-              required : "Name is required",
-              min : {
-                value : 3,
-                message : "Name must be atleast 3 characters"
-              },
-              max : {
-                value : 20,
-                message : "Name cannot exceed 20 characters"
-              }
-            })} placeholder='Name' className='contactInput w-1/2' type='text' />
-            <input {...register('email',{
-              required : "Email is required",
-            })} placeholder='Email' className='contactInput w-1/2' type='email' />
+            <input
+              {...register('name', {
+                required: 'Name is required',
+                min: {
+                  value: 3,
+                  message: 'Name must be at least 3 characters',
+                },
+                max: {
+                  value: 20,
+                  message: 'Name cannot exceed 20 characters',
+                },
+              })}
+              placeholder='Name'
+              className='contactInput w-1/2'
+              type='text'
+            />
+            <input
+              {...register('email', {
+                required: 'Email is required',
+              })}
+              placeholder='Email'
+              className='contactInput w-1/2'
+              type='email'
+            />
           </div>
 
-          <input {...register('subject',{required : 'Subject is required'})} placeholder='Subject' className='contactInput' type='text' />
-          <textarea {...register('message',{required : "Message is required"})} placeholder='Message' className='contactInput'  />
+          <input
+            {...register('subject', { required: 'Subject is required' })}
+            placeholder='Subject'
+            className='contactInput'
+            type='text'
+          />
+          <textarea
+            {...register('message', { required: 'Message is required' })}
+            placeholder='Message'
+            className='contactInput'
+          />
           <button
             type='submit'
             className='bg-[#F7AB0A] py-3 px-8 rounded-md text-black font-semibold hover:scale-105 transition-transform duration-200'
@@ -83,4 +118,3 @@ const ContactMe = () => {
 }
 
 export default ContactMe
-

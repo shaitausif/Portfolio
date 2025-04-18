@@ -3,6 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+html,
+body {
+  scroll-behavior: smooth;
+}
 @layer components{
     .herobutton{
         @apply px-4 md:px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-wider md:tracking-widest text-gray-500 transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
@@ -11,6 +16,7 @@
     .contactInput{
         @apply outline-none bg-slate-400/10 rounded-sm border-b px-4 py-2 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7AB0A]/40 focus:text-[#F7AB0A]/40 hover:border-[#F7AB0A]/40
     }
+    
 }
 
 ::-webkit-scrollbar {
@@ -29,6 +35,16 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(247, 171, 10, 1); /* Fully opaque on hover */
+  }
+  @media (max-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+    }
   }
 
   @theme inline {

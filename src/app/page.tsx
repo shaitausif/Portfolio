@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="h-screen overflow-x-hidden overflow-y-scroll snap-y snap-mandatory z-0 scroll-smooth  ">
+    <div className="h-screen overflow-x-hidden overflow-y-scroll snap-y snap-mandatory z-0 scroll-smooth">
     
     {/* Header */}
     <Header/>
