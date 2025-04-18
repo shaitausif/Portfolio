@@ -31,11 +31,11 @@ const Projects = ({}) => {
         "The Full-Stack Blog App allows users to create an account, log in securely via NextAuth, and engage with blog posts. Authenticated users can create, edit, or delete their own posts, while unauthenticated users can only view published content. The app uses React Hook Form for managing form data and Redux Toolkit for centralized state management. With a focus on clean UI design and smooth user experience, this app showcases full-stack development with features such as authentication, CRUD operations, and state management.",
       image: "./Project2.png",
       techStack: [
-        { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
+        { id: 1, name: "Next.js", image: "/icons/react.svg" },
         { id: 2, name: "NextAuth", image: "/icons/nextauth.png" },
         { id: 3, name: "React Hook Form", image: "/icons/reacthookform.png" },
         { id: 4, name: "Redux Toolkit", image: "/icons/redux.svg" },
-        { id: 5, name: "MongoDB", image: "/icons/mongodb.svg" },
+        { id: 5, name: "MongoDB", image: "/icons/appwrite.svg" },
       ],
       url: "https://blog-app-liard-six.vercel.app/",
     },
