@@ -113,7 +113,7 @@ const Projects = ({}) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="min-h-screen relative flex flex-col max-w-full justify-evenly z-0 items-center overflow-hidden px-4"
+      className="h-screen relative flex flex-col max-w-full justify-evenly z-0 items-center overflow-hidden px-4"
     >
       <h3 className="uppercase text-gray-500 tracking-[18px] absolute md:top-20 top-16 text-xl">
         Projects

@@ -25,7 +25,7 @@ const ContactMe = () => {
 
 
   return (
-    <div className='min-h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-6xl justify-evenly items-center mx-auto px-4'>
+    <div className='h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-6xl justify-evenly items-center mx-auto px-4'>
       <h3 className='uppercase text-gray-500 tracking-[18px] absolute md:top-20 top-16 text-xl'>Contact</h3>
 
       <div className='flex flex-col space-y-6 pt-24 w-full'>
