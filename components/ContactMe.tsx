@@ -11,7 +11,7 @@ type Inputs = {
 }
 
 const ContactMe = () => {
-  const { register, handleSubmit } = useForm<Inputs>()
+  const { register, handleSubmit , reset } = useForm<Inputs>()
 
   const submit: SubmitHandler<Inputs> = (data) => {
     const mailtoLink = `mailto:toseaf.s@somaiya.edu?subject=${encodeURIComponent(
@@ -28,6 +28,8 @@ const ContactMe = () => {
 
     // Try opening mailto link first
     window.location.href = mailtoLink
+
+    reset();
 
     // Optional: set a timeout for fallback Gmail link (in case mailto doesn't open anything)
     setTimeout(() => {

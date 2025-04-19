@@ -41,8 +41,11 @@ const Hero = () => {
         <Link href={'#skills'}>
         <button className='herobutton'>Skills</button>
         </Link>
-        <Link href={'#projects'}>
+        <Link  href={'#projects'}>
         <button className='herobutton'>Projects</button>
+        </Link>
+        <Link download href={'./icons/Resume.pdf'}>
+        <button className='herobutton'>Resume</button>
         </Link>
       </div>
         </div>
