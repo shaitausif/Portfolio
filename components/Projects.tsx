@@ -51,7 +51,7 @@ const Projects = ({}) => {
         { id: 4, name: "GitHub OAuth", image: "/icons/github.svg" },
         { id: 5, name: "MongoDB", image: "/icons/mongodb.svg" },
       ],
-      url: "https://get-me-a-chai-khaki.vercel.app/",
+      url: "https://getmeachaiii.netlify.app/",
     },
     {
       title: "Netflix UI Clone",
