@@ -10,61 +10,66 @@ const Projects = ({}) => {
   const animationFrame = useRef<number | null>(null);
 
   const projects = [
-    {
-      title: "True Feedback - Full Stack Application",
-      description:
-        "True Feedback is a full-stack platform where users can give and receive anonymous feedback with OTP verification for secure login. Built using Next.js, MongoDB, and Mongoose for the backend, the app integrates NextAuth for secure authentication. It uses Zod for API response validation to ensure data integrity. Additionally, the platform integrates OpenAI to suggest feedback messages to users, helping them write more meaningful and constructive responses. This enhances user experience by guiding them in expressing their thoughts better while keeping interactions anonymous and respectful.",
-      image: "./Project1.png",
-      techStack: [
-        { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
-        { id: 2, name: "MongoDB", image: "/icons/mongodb.svg" },
-        { id: 3, name: "Mongoose", image: "/icons/mongoose.svg" },
-        { id: 4, name: "NextAuth", image: "/icons/nextauth.png" },
-        { id: 5, name: "Zod", image: "/icons/zod.png" },
-        { id: 6, name: "OpenAI API", image: "/icons/openai.ico" },
-      ],
-      url: "https://true-feedback-eight-woad.vercel.app/",
-    },
-    {
-      title: "Full-Stack Blog App",
-      description:
-        "The Full-Stack Blog App allows users to create an account, log in securely via NextAuth, and engage with blog posts. Authenticated users can create, edit, or delete their own posts, while unauthenticated users can only view published content. The app uses React Hook Form for managing form data and Redux Toolkit for centralized state management. With a focus on clean UI design and smooth user experience, this app showcases full-stack development with features such as authentication, CRUD operations, and state management.",
-      image: "./Project2.png",
-      techStack: [
-        { id: 1, name: "Next.js", image: "/icons/react.svg" },
-        { id: 2, name: "NextAuth", image: "/icons/nextauth.png" },
-        { id: 3, name: "React Hook Form", image: "/icons/reacthookform.png" },
-        { id: 4, name: "Redux Toolkit", image: "/icons/redux.svg" },
-        { id: 5, name: "MongoDB", image: "/icons/appwrite.svg" },
-      ],
-      url: "https://blog-app-liard-six.vercel.app/",
-    },
-    {
-      title: "GetMeChai - Patreon Clone",
-      description:
-        "GetMeChai is a Patreon-like platform built with Next.js where creators can offer exclusive content and receive support from their followers. Users can sign up, create profiles, link their Razorpay account for payments, and authenticate securely using GitHub via NextAuth. The platform’s focus is on providing a seamless experience for creators and their supporters, with an easy-to-use interface, secure payment integration, and strong emphasis on user privacy and security.",
-      image: "./Project3.png",
-      techStack: [
-        { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
-        { id: 2, name: "Razorpay", image: "/icons/razorpay.png" },
-        { id: 3, name: "NextAuth", image: "/icons/nextauth.png" },
-        { id: 4, name: "GitHub OAuth", image: "/icons/github.svg" },
-        { id: 5, name: "MongoDB", image: "/icons/mongodb.svg" },
-      ],
-      url: "https://getmeachaiii.netlify.app/",
-    },
-    {
-      title: "Netflix UI Clone",
-      description:
-        "The Netflix UI Clone is a simple yet visually appealing replication of the Netflix homepage using only vanilla HTML and CSS. The project focuses on building responsive layouts, mimicking the sleek design of Netflix, and ensuring that the UI looks great on all screen sizes. Although it does not contain functional backend features, it demonstrates a strong understanding of frontend web development, including flexbox, grid systems, and media queries for responsiveness.",
-      image: "./Project4.png",
-      techStack: [
-        { id: 1, name: "HTML", image: "/icons/html.svg" },
-        { id: 2, name: "CSS", image: "/icons/css.svg" },
-      ],
-      url: "https://shaitausif.github.io/Netflix-Clone/",
-    },
-  ];
+  {
+    title: "True Feedback - Full Stack Application",
+    description:
+      "True Feedback is a full-stack platform where users can give and receive anonymous feedback with OTP verification for secure login. Built using Next.js, MongoDB, and Mongoose for the backend, the app integrates NextAuth for secure authentication. It uses Zod for API response validation to ensure data integrity. Additionally, the platform integrates OpenAI to suggest feedback messages to users, helping them write more meaningful and constructive responses. This enhances user experience by guiding them in expressing their thoughts better while keeping interactions anonymous and respectful.",
+    image: "./Project1.png",
+    techStack: [
+      { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
+      { id: 2, name: "MongoDB", image: "/icons/mongodb.svg" },
+      { id: 3, name: "Mongoose", image: "/icons/mongoose.svg" },
+      { id: 4, name: "NextAuth", image: "/icons/nextauth.png" },
+      { id: 5, name: "Zod", image: "/icons/zod.png" },
+      { id: 6, name: "OpenAI API", image: "/icons/openai.ico" },
+    ],
+    url: "https://true-feedback-eight-woad.vercel.app/",
+  },
+  {
+    title: "Full-Stack Blog App",
+    description:
+      "The Full-Stack Blog App allows users to create an account, log in securely via NextAuth, and engage with blog posts. Authenticated users can create, edit, or delete their own posts, while unauthenticated users can only view published content. The app uses React Hook Form for managing form data and Redux Toolkit for centralized state management. With a focus on clean UI design and smooth user experience, this app showcases full-stack development with features such as authentication, CRUD operations, and state management.",
+    image: "./Project2.png",
+    techStack: [
+      { id: 1, name: "Next.js", image: "/icons/react.svg" },
+      { id: 2, name: "NextAuth", image: "/icons/nextauth.png" },
+      { id: 3, name: "React Hook Form", image: "/icons/reacthookform.png" },
+      { id: 4, name: "Redux Toolkit", image: "/icons/redux.svg" },
+      { id: 5, name: "MongoDB", image: "/icons/appwrite.svg" },
+    ],
+    url: "https://blog-app-liard-six.vercel.app/",
+  },
+  {
+    title: "GetMeChai - Patreon Clone",
+    description:
+      "GetMeChai is a Patreon-like platform built with Next.js where creators can offer exclusive content and receive support from their followers. Users can sign up, create profiles, link their Razorpay account for payments, and authenticate securely using GitHub via NextAuth. The platform’s focus is on providing a seamless experience for creators and their supporters, with an easy-to-use interface, secure payment integration, and strong emphasis on user privacy and security.",
+    image: "./Project3.png",
+    techStack: [
+      { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
+      { id: 2, name: "Razorpay", image: "/icons/razorpay.png" },
+      { id: 3, name: "NextAuth", image: "/icons/nextauth.png" },
+      { id: 4, name: "GitHub OAuth", image: "/icons/github.svg" },
+      { id: 5, name: "MongoDB", image: "/icons/mongodb.svg" },
+    ],
+    url: "https://getmeachaiii.netlify.app/",
+  },
+  {
+    title: "Eclypse - Internship Assignment",
+    description:
+      "Eclypse is a modern web app created as part of an internship assignment, focusing on supporting homegrown brands and empowering unique voices. The project captures the brand's mission of connection and community while providing a clean and responsive UI. Built with a full-stack architecture, it integrates secure backend operations, seamless user interaction, and scalable data handling.",
+    image: "./Project4.png",
+    techStack: [
+      { id: 1, name: "React", image: "/icons/react.svg" },
+      { id: 2, name: "Express", image: "/icons/express.svg" },
+      { id: 3, name: "MongoDB", image: "/icons/mongodb.svg" },
+      { id: 4, name: "Node.js", image: "/icons/nodejs.svg" },
+      { id: 5, name: "Tailwind CSS", image: "/icons/tailwindcss.svg" },
+     
+    ],
+    url: "https://eclypse-backend-hoxc.vercel.app", // Replace with actual URL if deployed
+  },
+];
+
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -151,7 +156,7 @@ const Projects = ({}) => {
             </div>
             <div className="space-y-5 px-0 md:px-10 max-w-5xl">
               <h4 className="text-lg md:text-xl font-semibold text-center">
-                <span className="underline decoration-[#F7AB0A]/50 pt-5">
+                <span className="pt-5">
                   {project.title}
                 </span>
               </h4>
