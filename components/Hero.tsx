@@ -26,7 +26,7 @@ const Hero = () => {
         animate={{opacity : 1}}
         transition={{duration : 0.5, ease : easeIn}}
         className='relative rounded-full h-32 w-32 mx-auto object-cover'
-        src="https://media.licdn.com/dms/image/v2/D4D03AQEWTjw6R3fYrw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722681565735?e=1750291200&v=beta&t=sAyE34D0ghH6XzFgEycu7b_y5mlSjP5pFm2Q8cjioNc" alt="" />
+        src="./Me.jpg" alt="" />
         <div className='z-20'>
           <h2 className='text-sm md:text-md uppercase text-gray-500 pb-2 tracking-[10px]'>MERN Stack Developer</h2>
           <h1 className='text-xl sm:text-4xl  font-semibold px-10'>
