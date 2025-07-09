@@ -24,6 +24,7 @@ const About = () => {
 
       className='-mb-20 md:mb-0 flex-shrink-0 w-36 h-36 rounded-full object-cover md:rounded-lg md:w-52 md:h-72 xl:w-[300px] xl:h-[400px]'
       src='./Me.jpg' />
+      
 
     <div className='space-y-5 md:space-y-10 px-0 md:px-10'>
         <h4 className='md:text-3xl lg:text-4xl text-2xl font-semibold'>Here is a <span className='underline decoration-[#F7AB0A]'>little</span> background</h4>
