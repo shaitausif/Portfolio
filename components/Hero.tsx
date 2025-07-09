@@ -28,7 +28,7 @@ const Hero = () => {
         className='relative rounded-full h-32 w-32 mx-auto object-cover'
         src="./Me.jpg" alt="" />
         <div className='z-20'>
-          <h2 className='text-sm md:text-md uppercase text-gray-500 pb-2 tracking-[10px]'>MERN Stack Developer</h2>
+          <h2 className='text-sm md:text-md uppercase text-gray-500 pb-2 tracking-[8px]'>Full Stack Developer</h2>
           <h1 className='text-xl sm:text-4xl  font-semibold px-10'>
         <span className='mr-3'>{text}</span>
         <Cursor cursorColor="#F7AB0A" /> 
