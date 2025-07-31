@@ -14,13 +14,13 @@ const ContactMe = () => {
   const { register, handleSubmit , reset } = useForm<Inputs>()
 
   const submit: SubmitHandler<Inputs> = (data) => {
-    const mailtoLink = `mailto:toseaf.s@somaiya.edu?subject=${encodeURIComponent(
+    const mailtoLink = `mailto:shaikhtausif089@gmail.com?subject=${encodeURIComponent(
       data.subject
     )}&body=${encodeURIComponent(
       `Hi, my name is ${data.name},\n\n${data.message}\n\n(${data.email})`
     )}`
 
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=toseaf.s@somaiya.edu&su=${encodeURIComponent(
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=shaikhtausif089@gmail.com&su=${encodeURIComponent(
       data.subject
     )}&body=${encodeURIComponent(
       `Hi, my name is ${data.name},\n\n${data.message}\n\n(${data.email})`
@@ -57,7 +57,7 @@ const ContactMe = () => {
           </div>
           <div className='flex items-center space-x-5 justify-center'>
             <EnvelopeIcon className='text-[#F7AB0A] h-6 w-6 animate-pulse' />
-            <p className='text-md md:text-xl break-all'>toseaf.s@somaiya.edu</p>
+            <p className='text-md md:text-xl break-all'>shaikhtausif089@gmail.com</p>
           </div>
           <div className='flex items-center space-x-5 justify-center'>
             <MapPinIcon className='text-[#F7AB0A] h-6 w-6 animate-pulse' />
