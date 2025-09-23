@@ -43,7 +43,7 @@ const Skills = () => {
     },
     { id: 16, image: "./icons/postman.svg", progress: "60", name: "Postman" },
     { id: 18, image: "./icons/vite.svg", progress: "60", name: "Vite" },
-    { id: 20, image: "./icons/mysql.svg", progress: "50", name: "MySQL" },
+    { id: 20, image: "./icons/PostgreSQL.svg", progress: "50", name: "PostgreSQL" },
     {
       id: 21,
       image: "./icons/python.svg",

@@ -3,6 +3,37 @@ import React, { useRef, useEffect } from "react";
 import * as motion from "motion/react-client";
 import { ExternalLink, Github } from "lucide-react"; // Import specific icons
 
+const LoadingDots = () => {
+  const dotVariants = {
+    animate: {
+      x: [0, -6, 0], // bounce effect
+      opacity : [0.7,1,0.7],
+      transition: {
+        duration: 0.6,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  return (
+    <span className="flex space-x-1 ml-2 mt-3">
+      {[0, 1, 2].map((i) => (
+        <motion.span
+          key={i}
+          variants={dotVariants}
+          animate="animate"
+          transition={{
+            delay: i * 0.2, // stagger dots
+            repeat: Infinity,
+          }}
+          className="w-1 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-full animate-gradient"
+        />
+      ))}
+    </span>
+  );
+};
+
 const Projects = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -12,35 +43,39 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "True Feedback - Full Stack Application",
+      title: "VideoTube - Social Media Platform",
       description:
-        "True Feedback is a full-stack platform where users can give and receive anonymous feedback with OTP verification for secure login. Built using Next.js, MongoDB, and Mongoose for the backend, the app integrates NextAuth for secure authentication. It uses Zod for API response validation to ensure data integrity. Additionally, the platform integrates OpenAI to suggest feedback messages to users, helping them write more meaningful and constructive responses. This enhances user experience by guiding them in expressing their thoughts better while keeping interactions anonymous and respectful.",
-      image: "./Project1.png",
+        "Developed a full-stack platform combining video sharing, microblogging, and real-time chat, handling hundreds of concurrent users and processing video uploads. The platform utilized background task processing to reduce latency by 20% and optimized real-time communication to achieve sub-200ms latency for chat and notifications. An integrated AI chatbot improved user assistance by 45%, while a push notification system delivered a 98% delivery rate.",
+      image: "./Project1.jpg",
       techStack: [
         { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
-        { id: 2, name: "MongoDB", image: "/icons/mongodb.svg" },
-        { id: 3, name: "Mongoose", image: "/icons/mongoose.svg" },
-        { id: 4, name: "NextAuth", image: "/icons/nextauth.png" },
-        { id: 5, name: "Zod", image: "/icons/zod.png" },
-        { id: 6, name: "OpenAI API", image: "/icons/openai.ico" },
+        { id: 2, name: "Express", image: "/icons/express.svg" },
+        { id: 3, name: "MongoDB", image: "/icons/mongodb.svg" },
+        { id: 4, name: "Firebase", image: "/icons/firebase.svg" },
+        { id: 5, name: "NextAuth", image: "/icons/nextauth.png" },
+        { id: 6, name: "Gemini API", image: "/icons/gemini.svg" },
+        { id: 7, name: "Cloudinary", image: "/icons/cloudinary.svg" },
+        { id: 8, name: "Razorpay", image: "/icons/razorpay.png" },
       ],
-      liveUrl: "https://true-feedback-eight-woad.vercel.app/", // Renamed for clarity
-      githubUrl: "https://github.com/shaitausif/True-Feedback", // Add GitHub URL
+      liveUrl: "", // Renamed for clarity
+      githubUrl: "https://github.com/shaitausif/videotube", // Add GitHub URL
     },
     {
-      title: "Full-Stack Blog App",
+      title: "Ticket AI - AI powered ticketing system",
       description:
-        "The Full-Stack Blog App allows users to create an account, log in securely via NextAuth, and engage with blog posts. Authenticated users can create, edit, or delete their own posts, while unauthenticated users can only view published content. The app uses React Hook Form for managing form data and Redux Toolkit for centralized state management. With a focus on clean UI design and smooth user experience, this app showcases full-stack development with features such as authentication, CRUD operations, and state management.",
-      image: "./Project2.png",
+        "Developed a ticketing system with a React and Express frontend, featuring Daisy UI and Tailwind CSS, that automates support workflows. An AI Agent, powered by Inngest and the Gemini API, analyzes user queries and assigns tickets to the most suitable moderator. The system automatically notifies the assigned individual and sends a confirmation email to the user, providing the moderator's name and contact information.",
+      image: "./Project2.jpg",
       techStack: [
-        { id: 1, name: "Next.js", image: "/icons/react.svg" }, // Assuming this should be Next.js or React
-        { id: 2, name: "NextAuth", image: "/icons/nextauth.png" },
-        { id: 3, name: "React Hook Form", image: "/icons/reacthookform.png" },
-        { id: 4, name: "Redux Toolkit", image: "/icons/redux.svg" },
-        { id: 5, name: "MongoDB", image: "/icons/appwrite.svg" }, // Assuming this is MongoDB, not Appwrite
+        { id: 1, name: "React.js", image: "/icons/react.svg" }, // Assuming this should be Next.js or React
+        { id: 2, name: "Express", image: "/icons/express.svg" },
+        { id: 8, name: "Tailwind CSS", image: "/icons/tailwindcss.svg"},
+        { id: 3, name: "NextAuth", image: "/icons/nextauth.png" },
+        { id: 4, name: "Gemini API", image: "/icons/gemini.svg" },
+        { id: 5, name: "Redux Toolkit", image: "/icons/redux.svg" },
+    
       ],
-      liveUrl: "https://blog-app-liard-six.vercel.app/",
-      githubUrl: "https://github.com/shaitausif/Blog-App", // Add GitHub URL
+      liveUrl: "https://ticket-ai-backend.onrender.com/",
+      githubUrl: "https://github.com/shaitausif/Full-stack-AI-Agent.git", // Add GitHub URL
     },
     {
       title: "GetMeChai - Patreon Clone",
@@ -51,7 +86,7 @@ const Projects = () => {
         { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
         { id: 2, name: "Razorpay", image: "/icons/razorpay.png" },
         { id: 3, name: "NextAuth", image: "/icons/nextauth.png" },
-        { id: 4, name: "GitHub OAuth", image: "/icons/github.svg" },
+        { id: 4, name: "Tailwind CSS", image: "/icons/tailwindcss.svg" },
         { id: 5, name: "MongoDB", image: "/icons/mongodb.svg" },
       ],
       liveUrl: "https://getmeachaiii.netlify.app/",
@@ -153,10 +188,24 @@ const Projects = () => {
                 alt={project.title} // Add alt text for accessibility
               />
               {/* Overlay for hover effect on image */}
-              <div className="absolute inset-0 bg-black/70 opacity-0 duration-300 group-hover:opacity-60 transition-opacity rounded-lg"></div>
+              <div className="absolute inset-0 bg-black/70 opacity-0 duration-300 justify-center flex items-center group-hover:opacity-60 transition-opacity rounded-lg">
+                {project.liveUrl === "" && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="flex items-center md:text-md text-base font-semibold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent animate-gradient"
+                  >
+                    Deployment in progress
+                    <LoadingDots />
+                  </motion.div>
+                )}
+              </div>
 
               {/* Links positioned absolutely within the motion.div */}
-              <div className="absolute top-2 right-2 flex space-x-2 z-30"> {/* Increased z-index for links */}
+              <div className="absolute top-2 right-2 flex space-x-2 z-30">
+                {" "}
+                {/* Increased z-index for links */}
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}

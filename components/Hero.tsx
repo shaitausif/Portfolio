@@ -44,7 +44,7 @@ const Hero = () => {
         <Link  href={'#projects'}>
         <button className='herobutton'>Projects</button>
         </Link>
-        <Link download href={'./icons/Resume.pdf'}>
+        <Link download href={'./Resume.pdf'}>
         <button className='herobutton'>Resume</button>
         </Link>
       </div>
