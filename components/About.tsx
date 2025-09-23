@@ -27,7 +27,7 @@ const About = () => {
 
     <div className='space-y-5 md:space-y-10 px-0 md:px-10'>
         <h4 className='md:text-3xl lg:text-4xl text-2xl font-semibold'>Here is a <span className='underline decoration-[#F7AB0A]'>little</span> background</h4>
-        <p className='text-sm md:text-base'>I am a Full Stack Developer specializing in MERN Stack (MongoDB, Express, React, Node.js) and Next.js, currently pursuing a BSc in IT from the University of Mumbai. I’ve worked on various projects, including a platform for anonymous feedback with OTP verification and NextAuth authentication. I am also building a Patreon clone for crowdfunding using Razorpay to enable users to raise funds. I am passionate about creating scalable, user-focused web applications and continuously learning new technologies to enhance my skills.</p>
+        <p className='text-sm md:text-base'>Information Technology undergraduate with practical experience in designing and delivering full-stack and AI-powered applications. Skilled in JavaScript, TypeScript, and Python, with expertise in React, Next.js, Node.js, and Express for scalable web and mobile solutions. Experienced in applying Agile practices to manage development workflows and using DevOps-oriented tools such as Git, GitHub, and CI/CD pipelines for efficient collaboration and deployment. Built projects including a real-time social media platform and an AI-driven ticketing system that automates support workflows. Strong foundation in databases like MongoDB and PostgreSQL, with a focus on building maintainable, high-performance applications that enhance user experience.</p>
     </div>
 
     </motion.div>

@@ -63,7 +63,7 @@ const Projects = () => {
     {
       title: "Ticket AI - AI powered ticketing system",
       description:
-        "Developed a ticketing system with a React and Express frontend, featuring Daisy UI and Tailwind CSS, that automates support workflows. An AI Agent, powered by Inngest and the Gemini API, analyzes user queries and assigns tickets to the most suitable moderator. The system automatically notifies the assigned individual and sends a confirmation email to the user, providing the moderator's name and contact information.",
+        "Developed a ticketing system with a React frontend and an Express backend, styled with DaisyUI and Tailwind CSS, to automate support workflows. Integrated an AI agent powered by Inngest and the Gemini API to analyze user queries and assign tickets to the most suitable moderator. The system automatically notifies the assigned moderator and sends a confirmation email to the user with the moderator’s name and contact information.",
       image: "./Project2.jpg",
       techStack: [
         { id: 1, name: "React.js", image: "/icons/react.svg" }, // Assuming this should be Next.js or React

@@ -37,9 +37,9 @@ const Skills = () => {
     },
     {
       id: 15,
-      image: "./icons/github.svg",
+      image: "./icons/git.svg",
       progress: "65",
-      name: "Git & GitHub",
+      name: "Git",
     },
     { id: 16, image: "./icons/postman.svg", progress: "60", name: "Postman" },
     { id: 18, image: "./icons/vite.svg", progress: "60", name: "Vite" },
@@ -47,9 +47,34 @@ const Skills = () => {
     {
       id: 21,
       image: "./icons/python.svg",
+      progress: "65",
+      name: "Python",
+    },
+    {
+      id: 22,
+      image: "./icons/github.svg",
+      progress: "70",
+      name: "Github",
+    },
+    {
+      id: 23,
+      image: "./icons/graphql.svg",
+      progress: "55",
+      name: "GraphQL",
+    },
+    {
+      id: 24,
+      image: "./icons/burp-suite.png",
       progress: "45",
       name: "Python (Basics)",
     },
+    {
+      id: 25,
+      image: "./icons/prisma.svg",
+      progress: "50",
+      name: "Prisma",
+    },
+    
   ];
 
   return (
