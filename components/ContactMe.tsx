@@ -13,32 +13,32 @@ type Inputs = {
 const ContactMe = () => {
   const { register, handleSubmit , reset } = useForm<Inputs>()
 
-  const submit: SubmitHandler<Inputs> = (data) => {
-    const mailtoLink = `mailto:shaikhtausif089@gmail.com?subject=${encodeURIComponent(
-      data.subject
-    )}&body=${encodeURIComponent(
-      `Hi, my name is ${data.name},\n\n${data.message}\n\n(${data.email})`
-    )}`
+const submit: SubmitHandler<Inputs> = (data) => {
+  const subject = encodeURIComponent(data.subject)
+  const body = encodeURIComponent(
+    `Hi, my name is ${data.name},\n\n${data.message}\n\n(${data.email})`
+  )
+  const mailtoLink = `mailto:shaikhtausif089@gmail.com?subject=${subject}&body=${body}`
+  
+  // Gmail Fallback Link (redirects in the current tab)
+  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=shaikhtausif089@gmail.com&su=${subject}&body=${body}`
 
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=shaikhtausif089@gmail.com&su=${encodeURIComponent(
-      data.subject
-    )}&body=${encodeURIComponent(
-      `Hi, my name is ${data.name},\n\n${data.message}\n\n(${data.email})`
-    )}`
+  // 1. Attempt the primary action (mailto). This will either open a native client 
+  // or a system prompt, causing the user to leave or interact with the browser.
+  window.location.href = mailtoLink
 
-    // Try opening mailto link first
-    window.location.href = mailtoLink
+  // 2. Set a short timeout for the fallback (e.g., 200ms).
+  // If the user's desktop client opens, this script often stops or is irrelevant.
+  // If nothing happens (no client configured), the user remains on the page.
+  setTimeout(() => {
+    // If the user is still here, redirect the current tab to the Gmail link.
+    // We use window.location.replace() for a cleaner history (not essential, but good practice).
+    window.location.replace(gmailLink)
+  }, 200) // 200 milliseconds is usually enough time for the mailto action to start.
 
-    reset();
-
-    // Optional: set a timeout for fallback Gmail link (in case mailto doesn't open anything)
-    setTimeout(() => {
-      const isDesktop = window.innerWidth > 768
-      if (isDesktop) {
-        window.open(gmailLink, '_blank')
-      }
-    }, 500)
-  }
+  // 3. Reset the form immediately.
+  reset();
+}
 
   return (
     <div className='h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-6xl justify-evenly items-center mx-auto px-4'>
