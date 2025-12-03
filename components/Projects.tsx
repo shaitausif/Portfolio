@@ -93,19 +93,19 @@ const Projects = () => {
       githubUrl: "https://github.com/shaitausif/Get-Me-a-Chai", // Add GitHub URL
     },
     {
-      title: "Eclypse - Internship Assignment",
+      title: "TaskPilot - Task Manager App",
       description:
-        "Eclypse is a modern web app created as part of an internship assignment, focusing on supporting homegrown brands and empowering unique voices. The project captures the brand's mission of connection and community while providing a clean and responsive UI. Built with a full-stack architecture, it integrates secure backend operations, seamless user interaction, and scalable data handling.",
-      image: "./Project4.png",
+        "TaskPilot is a professionally architected, full-stack productivity application designed to manage tasks, notes, and projects with a seamless user experience. Built with scalability, security, and clean architecture in mind, TaskPilot demonstrates production-level engineering skills, from backend API design to frontend UI/UX, authentication flows, and real-world error handling",
+      image: "./Project4.jpg",
       techStack: [
-        { id: 1, name: "React", image: "/icons/react.svg" },
+        { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
         { id: 2, name: "Express", image: "/icons/express.svg" },
         { id: 3, name: "MongoDB", image: "/icons/mongodb.svg" },
         { id: 4, name: "Node.js", image: "/icons/nodejs.svg" },
         { id: 5, name: "Tailwind CSS", image: "/icons/tailwindcss.svg" },
       ],
-      liveUrl: "https://eclypse-backend-hoxc.vercel.app", // Replace with actual URL if deployed
-      githubUrl: "https://github.com/shaitausif/eclypse-frontend", // Add GitHub URL
+      liveUrl: "https://task-pilot-frontend-uqr9.vercel.app", // Replace with actual URL if deployed
+      githubUrl: "https://github.com/shaitausif/Task-Pilot-Frontend", // Add GitHub URL
     },
   ];
 
