@@ -1,13 +1,14 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import * as motion from "motion/react-client";
-import { ExternalLink, Github } from "lucide-react"; // Import specific icons
+import { ExternalLink, Github } from "lucide-react";
+import { Project } from "@/lib/types";
 
 const LoadingDots = () => {
   const dotVariants = {
     animate: {
-      x: [0, -6, 0], // bounce effect
-      opacity : [0.7,1,0.7],
+      x: [0, -6, 0],
+      opacity: [0.7, 1, 0.7],
       transition: {
         duration: 0.6,
         repeat: Infinity,
@@ -24,7 +25,7 @@ const LoadingDots = () => {
           variants={dotVariants}
           animate="animate"
           transition={{
-            delay: i * 0.2, // stagger dots
+            delay: i * 0.2,
             repeat: Infinity,
           }}
           className="w-1 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-full animate-gradient"
@@ -34,80 +35,16 @@ const LoadingDots = () => {
   );
 };
 
-const Projects = () => {
+type ProjectsProps = {
+  projects: Project[];
+};
+
+const Projects = ({ projects }: ProjectsProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
   const animationFrame = useRef<number | null>(null);
-
-  const projects = [
-    {
-      title: "VideoTube - Social Media Platform",
-      description:
-        "Developed a full-stack platform combining video sharing, microblogging, and real-time chat, handling hundreds of concurrent users and processing video uploads. The platform utilized background task processing to reduce latency by 20% and optimized real-time communication to achieve sub-200ms latency for chat and notifications. An integrated AI chatbot improved user assistance by 45%, while a push notification system delivered a 98% delivery rate.",
-      image: "./Project1.jpg",
-      techStack: [
-        { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
-        { id: 2, name: "Express", image: "/icons/express.svg" },
-        { id: 3, name: "MongoDB", image: "/icons/mongodb.svg" },
-        { id: 4, name: "Firebase", image: "/icons/firebase.svg" },
-        { id: 5, name: "NextAuth", image: "/icons/nextauth.png" },
-        { id: 6, name: "Gemini API", image: "/icons/gemini.svg" },
-        { id: 7, name: "Cloudinary", image: "/icons/cloudinary.svg" },
-        { id: 8, name: "Razorpay", image: "/icons/razorpay.png" },
-      ],
-      liveUrl: "", // Renamed for clarity
-      githubUrl: "https://github.com/shaitausif/videotube", // Add GitHub URL
-    },
-    {
-      title: "Ticket AI - AI powered ticketing system",
-      description:
-        "Developed a ticketing system with a React frontend and an Express backend, styled with DaisyUI and Tailwind CSS, to automate support workflows. Integrated an AI agent powered by Inngest and the Gemini API to analyze user queries and assign tickets to the most suitable moderator. The system automatically notifies the assigned moderator and sends a confirmation email to the user with the moderator’s name and contact information.",
-      image: "./Project2.jpg",
-      techStack: [
-        { id: 1, name: "React.js", image: "/icons/react.svg" }, // Assuming this should be Next.js or React
-        { id: 2, name: "Express", image: "/icons/express.svg" },
-        { id: 8, name: "Tailwind CSS", image: "/icons/tailwindcss.svg"},
-        { id: 3, name: "NextAuth", image: "/icons/nextauth.png" },
-        { id: 4, name: "Gemini API", image: "/icons/gemini.svg" },
-        { id: 5, name: "Redux Toolkit", image: "/icons/redux.svg" },
-    
-      ],
-      liveUrl: "https://ticket-ai-backend.onrender.com/",
-      githubUrl: "https://github.com/shaitausif/Full-stack-AI-Agent.git", // Add GitHub URL
-    },
-    {
-      title: "GetMeChai - Patreon Clone",
-      description:
-        "GetMeChai is a Patreon-like platform built with Next.js where creators can offer exclusive content and receive support from their followers. Users can sign up, create profiles, link their Razorpay account for payments, and authenticate securely using GitHub via NextAuth. The platform’s focus is on providing a seamless experience for creators and their supporters, with an easy-to-use interface, secure payment integration, and strong emphasis on user privacy and security.",
-      image: "./Project3.png",
-      techStack: [
-        { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
-        { id: 2, name: "Razorpay", image: "/icons/razorpay.png" },
-        { id: 3, name: "NextAuth", image: "/icons/nextauth.png" },
-        { id: 4, name: "Tailwind CSS", image: "/icons/tailwindcss.svg" },
-        { id: 5, name: "MongoDB", image: "/icons/mongodb.svg" },
-      ],
-      liveUrl: "https://getmeachaiii.netlify.app/",
-      githubUrl: "https://github.com/shaitausif/Get-Me-a-Chai", // Add GitHub URL
-    },
-    {
-      title: "TaskPilot - Task Manager App",
-      description:
-        "TaskPilot is a professionally architected, full-stack productivity application designed to manage tasks, notes, and projects with a seamless user experience. Built with scalability, security, and clean architecture in mind, TaskPilot demonstrates production-level engineering skills, from backend API design to frontend UI/UX, authentication flows, and real-world error handling",
-      image: "./Project4.jpg",
-      techStack: [
-        { id: 1, name: "Next.js", image: "/icons/nextjs.svg" },
-        { id: 2, name: "Express", image: "/icons/express.svg" },
-        { id: 3, name: "MongoDB", image: "/icons/mongodb.svg" },
-        { id: 4, name: "Node.js", image: "/icons/nodejs.svg" },
-        { id: 5, name: "Tailwind CSS", image: "/icons/tailwindcss.svg" },
-      ],
-      liveUrl: "https://task-pilot-frontend-uqr9.vercel.app", // Replace with actual URL if deployed
-      githubUrl: "https://github.com/shaitausif/Task-Pilot-Frontend", // Add GitHub URL
-    },
-  ];
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -127,7 +64,7 @@ const Projects = () => {
 
       animationFrame.current = requestAnimationFrame(() => {
         const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX.current) * 3.5; // Adjust scroll speed
+        const walk = (x - startX.current) * 3.5;
         container.scrollLeft = scrollLeft.current - walk;
       });
     };
@@ -170,9 +107,9 @@ const Projects = () => {
         ref={scrollRef}
         className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-thumb-[#F7AB0A]/40 scrollbar-track-gray-400/20 cursor-grab scroll-smooth pt-10"
       >
-        {projects.map((project, i) => (
+        {projects.map((project) => (
           <div
-            key={i}
+            key={project._id}
             className="w-full flex-shrink-0 snap-center flex flex-col space-y-4 items-center justify-center p-3 md:p-12 min-h-screen"
           >
             <motion.div
@@ -180,14 +117,13 @@ const Projects = () => {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1.2 }}
               viewport={{ once: true }}
-              className="relative w-fit h-auto group" // Changed to group for hover effect
+              className="relative w-fit h-auto group"
             >
               <img
                 className="w-fit h-30 md:h-50 object-contain rounded-lg"
-                src={project.image}
-                alt={project.title} // Add alt text for accessibility
+                src={project.imageUrl}
+                alt={project.title}
               />
-              {/* Overlay for hover effect on image */}
               <div className="absolute inset-0 bg-black/70 opacity-0 duration-300 justify-center flex items-center group-hover:opacity-60 transition-opacity rounded-lg">
                 {project.liveUrl === "" && (
                   <motion.div
@@ -202,10 +138,7 @@ const Projects = () => {
                 )}
               </div>
 
-              {/* Links positioned absolutely within the motion.div */}
               <div className="absolute top-2 right-2 flex space-x-2 z-30">
-                {" "}
-                {/* Increased z-index for links */}
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}
@@ -213,7 +146,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="p-2 bg-gray-800/50 opacity-80 hover:opacity-100 duration-300 rounded-full text-white hover:bg-gray-700/50 transition-colors flex items-center justify-center"
                     title="View on GitHub"
-                    onClick={(e) => e.stopPropagation()} // Prevent drag when clicking link
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <Github className="md:h-6 h-5 w-5 md:w-6" />
                   </a>
@@ -225,7 +158,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="p-2 bg-gray-800/50 opacity-80 hover:opacity-100 duration-300 rounded-full text-white hover:bg-gray-700/50 transition-colors flex items-center justify-center"
                     title="View Live Project"
-                    onClick={(e) => e.stopPropagation()} // Prevent drag when clicking link
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <ExternalLink className="md:h-6 h-5 w-5 md:w-6" />
                   </a>
@@ -238,12 +171,12 @@ const Projects = () => {
                 <span className="pt-5">{project.title}</span>
               </h4>
               <div className="flex items-center space-x-3 justify-center">
-                {project.techStack.map((tech) => (
+                {project.techStack.map((tech, index) => (
                   <img
-                    key={tech.id}
-                    className="md:h-10 md:w-10 h-8 w-8 object-contain" // Added object-contain for icons
+                    key={index}
+                    className="md:h-10 md:w-10 h-8 w-8 object-contain"
                     src={tech.image}
-                    alt={tech.name} // Add alt text for accessibility
+                    alt={tech.name}
                   />
                 ))}
               </div>

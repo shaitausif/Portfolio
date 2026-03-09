@@ -1,6 +1,12 @@
 import React from 'react'
 import * as motion from "motion/react-client"
-const About = () => {
+
+type AboutProps = {
+  bio: string;
+  photo?: string;
+}
+
+const About = ({ bio, photo }: AboutProps) => {
   return (
     <motion.div
     initial={{opacity : 0}}
@@ -23,11 +29,11 @@ const About = () => {
       }}
 
       className='-mb-20 md:mb-0 flex-shrink-0 w-36 h-36 rounded-full object-cover md:rounded-lg md:w-52 md:h-72 xl:w-[300px] xl:h-[400px]'
-      src='./Me.jpg' />
+      src={photo || './Me.jpg'} />
 
     <div className='space-y-5 md:space-y-10 px-0 md:px-10'>
         <h4 className='md:text-3xl lg:text-4xl text-2xl font-semibold'>Here is a <span className='underline decoration-[#F7AB0A]'>little</span> background</h4>
-        <p className='text-sm md:text-base'>Information Technology undergraduate with practical experience in designing and delivering full-stack and AI-powered applications. Skilled in JavaScript, TypeScript, and Python, with expertise in React, React Native, Next.js, Node.js, and Express for scalable web and mobile solutions. Experienced in applying Agile practices to manage development workflows and using DevOps-oriented tools such as Git, GitHub, and CI/CD pipelines for efficient collaboration and deployment. Built projects including a real-time social media platform and an AI-driven ticketing system that automates support workflows. Strong foundation in databases like MongoDB and PostgreSQL, with a focus on building maintainable, high-performance applications that enhance user experience.</p>
+        <p className='text-sm md:text-base'>{bio}</p>
     </div>
 
     </motion.div>

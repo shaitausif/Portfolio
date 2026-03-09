@@ -10,33 +10,29 @@ type Inputs = {
   message: string
 }
 
-const ContactMe = () => {
-  const { register, handleSubmit , reset } = useForm<Inputs>()
+type ContactMeProps = {
+  email: string;
+  phone?: string;
+  address?: string;
+}
+
+const ContactMe = ({ email, phone, address }: ContactMeProps) => {
+  const { register, handleSubmit, reset } = useForm<Inputs>()
 
 const submit: SubmitHandler<Inputs> = (data) => {
   const subject = encodeURIComponent(data.subject)
   const body = encodeURIComponent(
     `Hi, my name is ${data.name},\n\n${data.message}\n\n(${data.email})`
   )
-  const mailtoLink = `mailto:shaikhtausif089@gmail.com?subject=${subject}&body=${body}`
-  
-  // Gmail Fallback Link (redirects in the current tab)
-  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=shaikhtausif089@gmail.com&su=${subject}&body=${body}`
+  const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`
+  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`
 
-  // 1. Attempt the primary action (mailto). This will either open a native client 
-  // or a system prompt, causing the user to leave or interact with the browser.
   window.location.href = mailtoLink
 
-  // 2. Set a short timeout for the fallback (e.g., 200ms).
-  // If the user's desktop client opens, this script often stops or is irrelevant.
-  // If nothing happens (no client configured), the user remains on the page.
   setTimeout(() => {
-    // If the user is still here, redirect the current tab to the Gmail link.
-    // We use window.location.replace() for a cleaner history (not essential, but good practice).
     window.location.replace(gmailLink)
-  }, 200) // 200 milliseconds is usually enough time for the mailto action to start.
+  }, 200)
 
-  // 3. Reset the form immediately.
   reset();
 }
 
@@ -51,18 +47,22 @@ const submit: SubmitHandler<Inputs> = (data) => {
         </h4>
 
         <div className='space-y-5 text-center'>
-          <div className='flex items-center space-x-5 justify-center'>
-            <PhoneIcon className='text-[#F7AB0A] h-6 w-6 animate-pulse' />
-            <p className='text-md md:text-xl'>+91 8879093649</p>
-          </div>
+          {phone && (
+            <div className='flex items-center space-x-5 justify-center'>
+              <PhoneIcon className='text-[#F7AB0A] h-6 w-6 animate-pulse' />
+              <p className='text-md md:text-xl'>{phone}</p>
+            </div>
+          )}
           <div className='flex items-center space-x-5 justify-center'>
             <EnvelopeIcon className='text-[#F7AB0A] h-6 w-6 animate-pulse' />
-            <p className='text-md md:text-xl break-all'>shaikhtausif089@gmail.com</p>
+            <p className='text-md md:text-xl break-all'>{email}</p>
           </div>
-          <div className='flex items-center space-x-5 justify-center'>
-            <MapPinIcon className='text-[#F7AB0A] h-6 w-6 animate-pulse' />
-            <p className='text-md md:text-xl '>Mumbra, Thane - Maharashtra 400612.</p>
-          </div>
+          {address && (
+            <div className='flex items-center space-x-5 justify-center'>
+              <MapPinIcon className='text-[#F7AB0A] h-6 w-6 animate-pulse' />
+              <p className='text-md md:text-xl'>{address}</p>
+            </div>
+          )}
         </div>
 
         <form

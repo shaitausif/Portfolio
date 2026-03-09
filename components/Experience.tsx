@@ -2,8 +2,13 @@
 import React, { useRef, useEffect } from "react";
 import * as motion from "motion/react-client";
 import ExperienceCard from "./ExperienceCard";
+import { Experience as ExperienceType } from "@/lib/types";
 
-const Experience = () => {
+type ExperienceProps = {
+  experience: ExperienceType[];
+};
+
+const Experience = ({ experience }: ExperienceProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -17,7 +22,7 @@ const Experience = () => {
     const handleMouseDown = (e: MouseEvent) => {
       isDragging.current = true;
       container.classList.add("cursor-grabbing");
-      container.style.userSelect = "none"; // prevent selection
+      container.style.userSelect = "none";
       startX.current = e.pageX - container.offsetLeft;
       scrollLeft.current = container.scrollLeft;
     };
@@ -29,7 +34,7 @@ const Experience = () => {
 
       animationFrame.current = requestAnimationFrame(() => {
         const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX.current) * 2.5; // smooth factor
+        const walk = (x - startX.current) * 2.5;
         container.scrollLeft = scrollLeft.current - walk;
       });
     };
@@ -37,7 +42,7 @@ const Experience = () => {
     const stopDrag = () => {
       isDragging.current = false;
       container.classList.remove("cursor-grabbing");
-      container.style.userSelect = ""; // allow selection again
+      container.style.userSelect = "";
     };
 
     container.addEventListener("mousedown", handleMouseDown);
@@ -60,22 +65,19 @@ const Experience = () => {
       transition={{ duration: 1.5 }}
       className="h-screen relative flex flex-col text-left max-w-full px-4 md:px-9 justify-center mx-auto items-center"
     >
-      {/* Heading */}
       <h3 className="uppercase tracking-[15px] md:tracking-[18px] absolute top-16 text-gray-500 text-lg md:text-xl z-10">
         Experience
       </h3>
 
-      {/* Cards Container */}
       <div
         ref={scrollRef}
-        className="w-full flex space-x-5 overflow-x-auto snap-x snap-mandatory mt-28 
-        scrollbar-thin scrollbar-thumb-[#F7AB0A]/40 scrollbar-track-gray-400/20 
+        className="w-full flex space-x-5 overflow-x-auto snap-x snap-mandatory mt-28
+        scrollbar-thin scrollbar-thumb-[#F7AB0A]/40 scrollbar-track-gray-400/20
         cursor-grab scroll-smooth"
       >
-        <ExperienceCard />
-        <ExperienceCard />
-        <ExperienceCard />
-        <ExperienceCard />
+        {experience.map((exp) => (
+          <ExperienceCard key={exp._id} experience={exp} />
+        ))}
       </div>
     </motion.div>
   );
